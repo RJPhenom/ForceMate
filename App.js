@@ -1,11 +1,12 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React from 'react';
+import { View, Text, StyleSheet } from 'react-native';
+import Button from './components/Button';
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
+      <Text>Welcome to the app!</Text>
+      <Button onPress={() => alert('New List Added')} title="➕ Add New List" />
     </View>
   );
 }
@@ -13,8 +14,7 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
     justifyContent: 'center',
+    alignItems: 'center',
   },
 });
