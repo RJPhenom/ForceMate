@@ -1,6 +1,13 @@
-// Contains const references to app brand colours
-export const fmBlue = '#009DFF';
-export const fmBlack = '#2A2A2A';
-export const fmGold = '#FFC954';
-export const fmWhite = '#FFFFFF';
-export const fmOffwhite = '#E4E4E4';
+// Contains const references to default app brand colours
+const fmBlue = '#009DFF';
+const fmBlack = '#2A2A2A';
+const fmGold = '#FFC954';
+const fmWhite = '#FFFFFF';
+const fmOffwhite = '#E4E4E4';
+
+// Exports colour settings
+export const ForeColour = fmBlack;
+export const BackColour = fmWhite;
+export const ForeText = fmWhite;
+export const BackText = fmBlack;
+export const BackColourOffset = fmOffwhite;

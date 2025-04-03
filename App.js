@@ -2,11 +2,12 @@ import React, { useState } from 'react';
 import { View, Image, Text, StyleSheet } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import { TouchableOpacity } from 'react-native';
 import { TouchableWithoutFeedback } from 'react-native';
-import { Platform } from 'react-native';
 
 // My imports
+// Assets
+import * as Colours from './assets/colours';
+
 // Components
 import NavBar from './components/NavBar';
 
@@ -32,6 +33,14 @@ export default function App() {
                 </>
               )}
             </Stack.Screen>
+            <Stack.Screen name="List">
+              {(props) => (
+                <>
+                <NavBar menuPressed={menuPressed} setMenuPressed={setMenuPressed} navigation={props.navigation}/>
+                <List {...props} setMenuPressed={setMenuPressed} />
+                </>
+              )}
+            </Stack.Screen>
           </Stack.Navigator>
         </NavigationContainer>
       </View>
@@ -42,6 +51,6 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: Colours.BackColour,
   },
 });

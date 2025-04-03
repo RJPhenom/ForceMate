@@ -5,17 +5,19 @@ import { TouchableWithoutFeedback } from 'react-native';
 import { Platform } from 'react-native';
 
 // My imports
+// Assets
 import * as Colours from '../assets/colours';
+import * as Icons from '../assets/icons';
 
 // Pages
 import Home from '../pages/Home';
 
 // VARS
-const navHeight = 40;
+const navHeight = 60;
 const mobilePadding = Platform.OS === 'web' ? 0 : 40;
 
 // *******************************
-//              JS
+//            COMPONENT
 // *******************************
 const NavBar = ({ menuPressed, setMenuPressed, navigation }) => {
   /* 
@@ -40,7 +42,7 @@ const NavBar = ({ menuPressed, setMenuPressed, navigation }) => {
           >
 
             {/* The actual burger menu icon, which is a png that sits in the container and changes colour */}
-            <Image source={require('../assets/BurgerIcon.png')} style={[styles.flexIcon, {height: '65%'}, { tintColor: menuPressed ? Colours.fmBlue : Colours.fmWhite }]} resizeMode='contain'/>
+            <Image source={Icons.BurgerIconWhite} style={[styles.flexIcon, {height: '45%'}, { tintColor: menuPressed ? Colours.fmBlue : Colours.fmWhite }]} />
 
           </TouchableOpacity>
           )}
@@ -52,11 +54,14 @@ const NavBar = ({ menuPressed, setMenuPressed, navigation }) => {
               <TouchableOpacity style={styles.webMenuItem} onPress={() => navigation.navigate('Home')}>
                 <Text style={styles.webMenuText}>Home</Text>
               </TouchableOpacity>
+              <TouchableOpacity style={styles.webMenuItem} onPress={() => navigation.navigate('List')}>
+                <Text style={styles.webMenuText}>List</Text>
+              </TouchableOpacity>
             </View>
           )}
 
           {/* Centered ForceMate Logo */}
-          <Image source={require('../assets/fmLogo.png')} style={styles.logo} resizeMode="contain" />
+          <Image source={Icons.ForceMateLogo} style={styles.logo} resizeMode="contain" />
 
         </View>
 
@@ -64,7 +69,7 @@ const NavBar = ({ menuPressed, setMenuPressed, navigation }) => {
         {menuPressed && !isWeb && (
           <View style={styles.dropdownMenu}>
             <TouchableOpacity style={styles.menuItem} onPress={() => navigation.navigate('Home')}>
-              <Image source={require('../assets/HomeIcon.png')} style={[styles.flexIcon, {height: '50%', alignSelf: 'center'}, { tintColor: menuPressed ? Colours.fmBlack : Colours.fmOffwhite }]} resizeMode='contain' />
+              <Image source={Icons.HomeIconBlack} style={[styles.flexIcon, {height: '50%', alignSelf: 'center'}, { tintColor: menuPressed ? Colours.fmBlack : Colours.fmOffwhite }]} />
               <Text style={styles.menuText}>Home</Text>
             </TouchableOpacity>
           </View>
@@ -80,7 +85,7 @@ const NavBar = ({ menuPressed, setMenuPressed, navigation }) => {
 const styles = StyleSheet.create({
   navbar: {
     height: navHeight,
-    backgroundColor: Colours.fmBlue,
+    backgroundColor: Colours.ForeColour,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
@@ -92,16 +97,17 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     position: 'absolute',
     left: 0, // Forces left align
-    backgroundColor: Colours.fmBlue,
+    backgroundColor: Colours.ForeColour,
   },
 
   burgerButtonPressed: {
-    backgroundColor: Colours.fmWhite,
+    backgroundColor: Colours.ForeText,
   },
 
   flexIcon: {
     flexShrink: 1,
     maxHeight: '100%',
+    resizeMode: 'contain',
   },
 
   // Justify the ForceMate logo
@@ -111,7 +117,7 @@ const styles = StyleSheet.create({
 
   // Dropdown nav menu styles
   container: {
-    backgroundColor: Colours.fmBlue,
+    backgroundColor: Colours.ForeColour,
       paddingTop: mobilePadding, // Padding for mobile menus at phone screen top
     zIndex: 100, // This only works if the dropdown is at front of z order, I'm not sure why
   },
@@ -120,7 +126,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
     top: navHeight + mobilePadding, // Below navbar
     left: 0,
-    backgroundColor: Colours.fmWhite,
+    backgroundColor: Colours.BackColour,
     alignContent: 'stretch',
   },
 
@@ -128,7 +134,7 @@ const styles = StyleSheet.create({
     height: navHeight,
     paddingHorizontal: 25,
     borderBottomWidth: 1,
-    borderBottomColor: Colours.fmOffwhite,
+    borderBottomColor: Colours.BackColourOffset,
     flexDirection: 'row',
     justifyContent: 'center',
   },
@@ -140,7 +146,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     fontSize: 16,
     paddingHorizontal: 15,
-    color: Colours.fmBlack,
+    color: Colours.BackText,
   },
 
   webMenuItem: {
@@ -158,7 +164,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     fontSize: 16,
     paddingHorizontal: 15,
-    color: Colours.fmWhite,
+    color: Colours.ForeText,
   },
 
   webMenuContainer: {
