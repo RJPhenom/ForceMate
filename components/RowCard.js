@@ -16,9 +16,9 @@ import PointsBubble from "./PointsBubble";
 const RowCard = ({ onPress, thumbnail, text, points }) => {
   return (
     <TouchableOpacity style={styles.container} onPress={onPress}>
-      <Image source={thumbnail} style={styles.thumbnail} />
+      {thumbnail != null && <Image source={thumbnail} style={styles.thumbnail} />}
       <Text style={[styles.text, { fontStyle: 'italic' }]}>{text}</Text>
-      {points !== null && <PointsBubble points={points} />}
+      {points != null && <PointsBubble points={points} />}
     </TouchableOpacity>
   );
 };
@@ -30,12 +30,12 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: "row",
     alignItems: "center",
+    justifyContent: 'flex-start',
     backgroundColor: Colours.BackColour,
     padding: 10,
     borderBottomWidth: 1,
     borderBottomColor: Colours.BackColourOffset,
-    flexDirection: 'row',
-    justifyContent: 'flex-start',
+    width: '100%',
   },
 
   thumbnail: {
@@ -47,6 +47,7 @@ const styles = StyleSheet.create({
 
   text: {
     color: Colours.BackText,
+    fontFamily: 'Urbanist',
     fontSize: 14,
   },
 });

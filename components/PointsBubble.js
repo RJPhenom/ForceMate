@@ -38,6 +38,7 @@ const styles = StyleSheet.create({
     color: Colours.ForeText,
     fontSize: 14,
     fontWeight: 'bold',
+    fontFamily: 'Urbanist',
   },
 });
 
