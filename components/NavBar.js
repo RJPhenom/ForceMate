@@ -9,10 +9,10 @@ import { Platform } from 'react-native';
 import * as Colours from '../assets/colours';
 import * as Icons from '../assets/icons';
 
-// Pages
-import Home from '../pages/Home';
-
-// VARS
+// *******************************
+//               JS
+// *******************************
+// CONSTS
 const navHeight = 60;
 const mobilePadding = Platform.OS === 'web' ? 0 : 40;
 

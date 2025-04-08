@@ -15,6 +15,10 @@ import NavBar from './components/NavBar';
 import Home from './pages/Home';
 import List from './pages/List';
 
+// *******************************
+//               JS
+// *******************************
+// CONSTS
 const Stack = createStackNavigator();
 
 export default function App() {

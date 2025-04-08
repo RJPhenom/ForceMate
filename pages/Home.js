@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { View, Image, Text, StyleSheet } from 'react-native';
 import { TouchableOpacity } from 'react-native';
 import { Platform } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 
 // My imports
 // Assets
@@ -12,6 +13,14 @@ import * as Icons from '../assets/icons';
 import RowCard from '../components/RowCard';
 import ModalMenu from '../components/ModalMenu';
 
+// Data
+import Data from '../data/wh40k10e.json';
+import Thumbnails from '../data/thumbnails';
+import ListData from '../data/lists.json';
+
+// *******************************
+//               JS
+// *******************************
 // CONSTS
 const addIconHeight = Platform.OS === 'web' ? 20 : '80%';
 const addButtonWidth = Platform.OS === 'web' ? 200 : '50%';
@@ -23,7 +32,7 @@ const validateListTitle = (inTitle) => {
   if (!inTitle?.trim() || inTitle === textEntry)  { return false; }
   
   // Checks for duplicates
-  const listExists = true//ListData.lists.some(list => list.name === inTitle);
+  const listExists = ListData.lists.some(list => list.name === inTitle);
   if (listExists) { return false; }
 
   // Passed
@@ -33,7 +42,7 @@ const validateListTitle = (inTitle) => {
 /// Creates a new list JSON object, after validating the title input.
 /// If list title is valid, create a new json list object taking in the title and
 /// faction, but leaving the unit list initialized empty.
-const createList = (inTitle, inFaction) => {
+const createList = async (inTitle, inFaction, navigation, closeWindow) => {
   // If the input is valid, create the list
   if (validateListTitle(inTitle)) {
     const newList = {
@@ -41,6 +50,9 @@ const createList = (inTitle, inFaction) => {
       faction: inFaction,
       units: []
     };
+
+    closeWindow();
+    navigation.navigate('List', { list: newList });
   }
 
   // If list title isn't valid, raise an alert and return (exit func)
@@ -59,6 +71,14 @@ export default function Home({ navigation }) {
   const [titleInput, setTitleInput] = useState(textEntry || "");
   const openModalAddList = () => setModalAddList(true);
   const closeModalAddList = () => setModalAddList(false);
+
+  //---DATA Handling---
+  // Get the list of factions from the data file
+  const items = Data.factions.map((faction) => ({
+    thumbnail: Thumbnails[faction.id],
+    text: faction.name.toUpperCase(),
+    onPress: () => { createList(titleInput, faction.id, navigation, closeModalAddList) },
+  }));
 
   return (
     <View style={styles.container}>
@@ -81,23 +101,15 @@ export default function Home({ navigation }) {
         textEntry={textEntry}
         titleInput={titleInput}
         setTitleInput={setTitleInput}
-        items={[
-          {
-            thumbnail: require('../data/thumbnails/tau.png'),
-            text: "T'AU EMPIRE",
-            onPress: () => createList(titleInput, "tau"),
-          },
-          {
-            thumbnail: require('../data/thumbnails/orks.png'),
-            text: "ORKS",
-            onPress: () => createList(titleInput, "orks"),
-          },
-        ]}
+        items={items}
       />
     </View>
   );
 }
 
+// *******************************
+//            STYLES
+// *******************************
 const styles = StyleSheet.create({
   container: {
     flex: 1,

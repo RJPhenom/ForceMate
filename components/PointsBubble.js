@@ -5,6 +5,9 @@ import { Platform } from "react-native";
 // My imports
 import * as Colours from '../assets/colours';
 
+// *******************************
+//               JS
+// *******************************
 // CONSTS
 const minWidth = Platform.OS === 'web' ? 60 : 30;
 
