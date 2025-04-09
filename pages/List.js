@@ -5,7 +5,8 @@ import { Platform } from 'react-native';
 
 // My imports
 // Assets
-import * as Colours from '../assets/colours'
+import * as Colours from '../assets/colours';
+import * as Icons from '../assets/icons';
 
 // Components
 import RowCard from '../components/RowCard';
@@ -13,6 +14,7 @@ import RowCard from '../components/RowCard';
 // Data
 import Data from '../data/wh40k10e.json';
 import Thumbnails from '../data/thumbnails';
+import CategoryCard from '../components/CategoryCard';
 
 // *******************************
 //               JS
@@ -28,18 +30,26 @@ const getFaction = (id) => {
 	return Data.factions.find(faction => faction.id === id);
 }
 
+const getFactionAsConfigItem = (faction) => {
+	
+}
+
 // *******************************
 //               PAGE
 // *******************************
 export default function List({ navigation, route }) {
 	// ---Retrieve DATA from Params---
 	const { list } = route.params;
+	const categories = list.categories;
 	const faction = getFaction(list.faction);
 
 	return (
 	<View style={styles.container}>
 
 		{/* ------------------CONTENT------------------ */}
+		{/* First row is always the configuration category, with details passed to the list page */}
+		<CategoryCard name = 'Configuration' thumbnail={Icons.SmallPlusIconBlack} addable={false} />
+
 		{/* Rows (ending with Add List Row Card) */}
 		<RowCard onPress={() => {}} thumbnail={Thumbnails[list.faction]} text={faction.name} />
 

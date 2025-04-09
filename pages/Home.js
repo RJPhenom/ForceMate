@@ -48,6 +48,7 @@ const createList = async (inTitle, inFaction, navigation, closeWindow) => {
     const newList = {
       name: inTitle,
       faction: inFaction,
+      categories: inCategories,
       units: []
     };
 
@@ -142,5 +143,6 @@ const styles = StyleSheet.create({
     color: Colours.ForeText,
     fontSize: 24,
     fontWeight: 'bold',
+    fontFamily: 'Urbanist',
   },
 });
