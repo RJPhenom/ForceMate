@@ -1,5 +1,4 @@
-import React from "react";
-import { useState } from "react";
+import React, { useState } from 'react';
 import { View, Image, Text, StyleSheet } from "react-native";
 import { Pressable } from "react-native";
 import { TextInput } from "react-native";
@@ -19,8 +18,8 @@ import ItemCard from "./ItemCard";
 // Built using https://reactnative.dev/docs/modal docs for react
 // modal windows.
 const ModalMenu = ({ isVisible, onClose, title, subtitle, textEntry, items, titleInput, setTitleInput }) => {
-  // Split the title for brand colouring
-  const titleWords = title.split(' ');
+  // Split the title for brand colouring on the leftmost space char
+  const titleWords = [title.slice(0, title.indexOf(' ')), title.slice(title.indexOf(' ') + 1)];
 
   return (
     <Modal
@@ -53,6 +52,8 @@ const ModalMenu = ({ isVisible, onClose, title, subtitle, textEntry, items, titl
                 <TextInput
                   style={styles.entryText}
                   value={titleInput} // Default value for the TextInput
+                  placeholder={textEntry} // Placeholder text
+                  placeholderTextColor={'gray'} // Make it visible (very faded colour by default)
                   onChangeText={(newText) => setTitleInput(newText)} // Update the state when text changes
                 />               
                 <Image source={Icons.SmallEditIconWhite} style={styles.editIcon} />
@@ -66,15 +67,18 @@ const ModalMenu = ({ isVisible, onClose, title, subtitle, textEntry, items, titl
 
           </View>
 
-            {/* ------------------BODY------------------ */}
-            <View style={styles.body}>
+          {/* ------------------BODY------------------ */}
+          <View style={styles.body}>
 
-              {/* Build RowCards from the items */}
-              {items.map((item, index) => (
-                <ItemCard key={index} {...item} />
-              ))}
+            {/* Build RowCards from the items */}
+            {items.map((item, index) => (
+              <ItemCard key={index} {...item} />
+            ))}
 
-            </View>
+          </View>
+
+            {/* ------------------FOOTER------------------ */}
+            {/* TODO */}
 
         </View>
         
@@ -128,6 +132,7 @@ const styles = StyleSheet.create({
   entryText: {
     textAlign: 'center',
     alignSelf: 'center',
+    color: 'black',
     backgroundColor: Colours.BackColour,
     borderRadius: 30,
     padding: 10,

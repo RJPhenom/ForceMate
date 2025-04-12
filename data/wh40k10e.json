@@ -3,17 +3,17 @@
         {
             "id" : 1,
             "name" : "Incursion",
-            "points_limit" : 1000
+            "points" : 1000
         },
         {
             "id" : 2,
             "name" : "Strike Force",
-            "points_limit" : 2000
+            "points" : 2000
         },
         {
             "id" : 3,
             "name" : "Onslaught",
-            "points_limit" : 3000
+            "points" : 3000
         }
     ],
 
@@ -25,9 +25,55 @@
             "id" : 1,
             "name" : "T'au Empire",
             "detachments" : [1,2,3,4,5,6],
-            "units" : [1],
             "rule" : 1,
-            "thumbnail" : "../data/thumbnails/tau.png"
+            "thumbnail" : "tau",
+            "categories" : [
+                {
+                    "id" : 1,
+                    "name" : "Epic Hero",
+                    "units" : [20,21]
+                },
+                {
+                    "id" : 2,
+                    "name" : "Character",
+                    "units" : [22,23,24]
+                },
+                {
+                    "id" : 3,
+                    "name" : "Battleline",
+                    "units" : [2]
+                },
+                {
+                    "id" : 4,
+                    "name" : "Infantry",
+                    "units" : [1,19]
+                },
+                {
+                    "id" : 5,
+                    "name" : "Mounted",
+                    "units" : []
+                },
+                {
+                    "id" : 6,
+                    "name" : "Beast",
+                    "units" : []
+                },
+                {
+                    "id" : 7,
+                    "name" : "Vehicle",
+                    "units" : [18,17,14,13,12,11,3]
+                },
+                {
+                    "id" : 8,
+                    "name" : "Dedicated Transport",
+                    "units" : [25]
+                },
+                {
+                    "id" : 9,
+                    "name" : "Fortifications",
+                    "units" : []
+                }
+            ]
         },
         {
             "id" : 2,
@@ -35,7 +81,54 @@
             "detachments" : [7],
             "units" : [],
             "rule" : 1,
-            "thumbnail" : "../data/thumbnails/orks.png"
+            "thumbnail" : "orks",
+            "categories" : [
+                {
+                    "id" : 1,
+                    "name" : "Epic Hero",
+                    "units" : [8]
+                },
+                {
+                    "id" : 2,
+                    "name" : "Character",
+                    "units" : [4]
+                },
+                {
+                    "id" : 3,
+                    "name" : "Battleline",
+                    "units" : [5]
+                },
+                {
+                    "id" : 4,
+                    "name" : "Infantry",
+                    "units" : []
+                },
+                {
+                    "id" : 5,
+                    "name" : "Mounted",
+                    "units" : []
+                },
+                {
+                    "id" : 6,
+                    "name" : "Monster",
+                    "units" : []
+                },
+                {
+                    "id" : 7,
+                    "name" : "Vehicle",
+                    "units" : [9,10,7,6]
+                },
+                {
+                    "id" : 8,
+                    "name" : "Dedicated Transport",
+                    "units" : []
+                },
+                {
+                    "id" : 9,
+                    "name" : "Fortifications",
+                    "units" : []
+                }
+            ]
         }
     ],
 
@@ -103,179 +196,142 @@
 
     "units" : [
         {
-            "id" : 1,
-            "name" : "Kroot Carnivores",
-            "model_map" : [[1,19],[2,1]],
-            "cost_map" : [],
-            "rules" : [],
-            "keywords" : [1],
-            "restrictions" : [
-                {"max_wargear" : [4,"$M/10"]}
-            ]
-        }
-    ],
-
-
-
-
-    "models" : [
-        {
-            "id" : 1,
-            "name" : "Kroot Carnivores",
-            "movement" : "7\"",
-            "toughness" : "3",
-            "save" : "6",
-            "wounds" : "1",
-            "oc" : "2",
-            "++" : "0",
-            "bs" : "4",
-            "ws" : "3",
-            "wargear" : [[1,4],5]
+          "id" : 1,
+          "name" : "Kroot Carnivores",
+          "points" : 65,
+          "thumbnail" : "kroot"
         },
         {
-            "id" : 1,
-            "name" : "Kroot Long-quill",
-            "movement" : "7\"",
-            "toughness" : "3",
-            "save" : "6",
-            "wounds" : "1",
-            "oc" : "2",
-            "++" : "0",
-            "bs" : "4",
-            "ws" : "3",
-            "wargear" : [[1,2],3,4]
-        }
-    ],
-
-
-
-
-    "wargear" : [
-        {
-            "id" : 1,
-            "name" : "Kroot Rifle",
-            "range" : "24\"",
-            "attacks" : "1",
-            "strength" : "4",
-            "ap" : "0",
-            "damage" : "1",
-            "rules" : [[6,1]]
+          "id": 2,
+          "name": "Strike Team",
+          "points": 75,
+          "thumbnail": "firewarrior"
         },
         {
-            "id" : 2,
-            "name" : "Kroot Carbine",
-            "range" : "18\"",
-            "attacks" : "1",
-            "strength" : "4",
-            "ap" : "0",
-            "damage" : "2",
-            "rules" : []
+          "id": 3,
+          "name": "Broadside Battlesuit",
+          "points": 90,
+          "thumbnail": "broadside"
         },
         {
-            "id" : 3,
-            "name" : "Kroot Pistol",
-            "range" : "12\"",
-            "attacks" : "1",
-            "strength" : "4",
-            "ap" : "0",
-            "damage" : "1",
-            "rules" : [8]
+          "id": 4,
+          "name": "Warboss",
+          "points": 65,
+          "thumbnail": "warboss"
         },
         {
-            "id" : 4,
-            "name" : "Tanglebomb Launcher",
-            "range" : "24\"",
-            "attacks" : "D3",
-            "strength" : "5",
-            "ap" : "0",
-            "damage" : "1",
-            "rules" : [7]
+          "id": 5,
+          "name": "Boyz",
+          "points": 100,
+          "thumbnail": "boyz"
         },
         {
-            "id" : 5,
-            "name" : "Close Combat Weapon",
-            "range" : "Melee",
-            "attacks" : "2",
-            "strength" : "4",
-            "ap" : "0",
-            "damage" : "1",
-            "rules" : []
-        }
-    ],
-
-
-
-
-    "rules" : [
-        {
-            "id" : 1,
-            "name" : "For the Greater Good",
-            "text" : "If your Army Faction is T'AU EMPIRE, then in your Shooting phase units from your army can work in pairs to help each other target specific enemy units. When they do this, one unit is the Observer unit and the other is their Guided unit. The enemy they are targeting is called their Spotted unit.\n\nEach time you select this unit to shoot, if it is not an Observer unit, it can use this ability. If it does, select one other friendly unit with this ability that is also eligible to shoot (excluding FORTIFICATION, Battle-shocked and Observer units). Until the end of the phase, this unit is considered a Guided unit, and that friendly unit is considered an Observer unit. Then select one enemy unit that is visible to both your units to be their Spotted unit.\n\nUntil the end of the phase:\n\n- Each time a model in a Guided unit makes an attack that targets their Spotted unit, improve the Ballistic Skill characteristic of the attack by 1 and, if their Observer unit has the MARKERLIGHT keyword, the attack has the [IGNORES COVER] ability.\n- Each time a model in a Guided unit makes an attack that does not target their Spotted unit, worsen the Ballistic Skill characteristic of the attack by 1."
+          "id": 6,
+          "name": "Deff Dread",
+          "points": 90,
+          "thumbnail": "deff_dread"
         },
         {
-            "id" : 2,
-            "name" : "Bothrod Gland",
-            "text" : "Kroot Flesh Shaper only. While the bearer is leading a unit, each time a model in that unit makes a melee attack, an unmodified Hit roll of 5+ scores a Critical Hit."
+          "id": 7,
+          "name": "Battlewagon",
+          "points": 150,
+          "thumbnail": "battlewagon"
         },
         {
-            "id" : 3,
-            "name" : "Kroothawk Flock",
-            "text" : "Kroot Flesh Shaper only. While the bearer is leading a unit, each time a model in that unit makes a melee attack, an unmodified Hit roll of 5+ scores a Critical Hit."
+          "id": 8,
+          "name": "Ghazghkull Thraka",
+          "points": 200,
+          "thumbnail": "ghazghkull_thraka"
         },
         {
-            "id" : 4,
-            "name" : "Nomadic Hunter",
-            "text" : "Kroot Flesh Shaper only. While the bearer is leading a unit, each time a model in that unit makes a melee attack, an unmodified Hit roll of 5+ scores a Critical Hit."
+          "id": 9,
+          "name": "Killa Kan",
+          "points": 70,
+          "thumbnail": "killa_kan"
         },
         {
-            "id" : 5,
-            "name" : "Root-carved Weapons",
-            "text" : "Kroot War Shaper model only. All weapons equipped by the bearer have the [PRECISION] and [DEVASTATING WOUNDS] abilities."
+          "id": 10,
+          "name": "Mek Gunz",
+          "points": 50,
+          "thumbnail": "mek_gunz"
         },
         {
-            "id" : 6,
-            "name" : "Rapid Fire $X",
-            "text" : "Weapons with [RAPID FIRE X] in their profile are known as Rapid Fire weapons. Each time such a weapon targets a unit within half that weapon's range, the Attacks characteristic of that weapon is increased by the amount denoted by 'x'."
+          "id": 11,
+          "name": "Riptide Battlesuit",
+          "points": 190,
+          "thumbnail": "riptide"
         },
         {
-            "id" : 7,
-            "name" : "Blast",
-            "text" : "Weapons with [BLAST] in their profile are known as Blast weapons, and they make a random number of attacks. Each time you determine how many attacks are made with a Blast weapon, add 1 to the result for every five models that were in the target unit when you selected it as the target (rounding down). Blast weapons can never be used to make attacks against a unit that is within Engagement Range of one or more units from the attacking model's army (including its own unit)."
+          "id": 12,
+          "name": "Hammerhead Gunship",
+          "points": 145,
+          "thumbnail": "hammerhead"
         },
         {
-            "id" : 8,
-            "name" : "Pistol",
-            "text" : "Weapons with [PISTOL] in their profile are known as Pistols. If a unit contains any models equipped with Pistols, that unit is eligible to shoot in its controlling player's Shooting phase even while it is within Engagement Range of one or more enemy units. When such a unit is selected to shoot, it can only resolve attacks using its Pistols and can only target one of the enemy units it is within Engagement Range of. In such circumstances, a Pistol can target an enemy unit even if other friendly units are within Engagement Range of the same enemy unit.\n\nIf a model is equipped with one or more Pistols, unless it is a MONSTER or VEHICLE model, it can either shoot with its Pistols or with all of its other ranged weapons. Declare whether such a model will shoot with its Pistols or its other ranged weapons before selecting targets."
-        }
-    ],
-
-
-
-
-    "keywords" : [
-        {
-            "id" : 1,
-            "keyword" : "Faction: T'au Empire"
+          "id": 13,
+          "name": "Ghostkeel Battlesuit",
+          "points": 160,
+          "thumbnail": "ghostkeel"
         },
         {
-            "id" : 2,
-            "keyword" : "Carnivore"
+          "id": 14,
+          "name": "Stormsurge",
+          "points": 400,
+          "thumbnail": "stormsurge"
         },
         {
-            "id" : 3,
-            "keyword" : "Grenades"
+          "id": 17,
+          "name": "Piranha",
+          "points": 70,
+          "thumbnail": "piranha"
         },
         {
-            "id" : 4,
-            "keyword" : "Infantry"
+          "id": 18,
+          "name": "Sky Ray Gunship",
+          "points": 140,
+          "thumbnail": "skyray"
         },
         {
-            "id" : 5,
-            "keyword" : "Kroot"
+          "id": 19,
+          "name": "Vespid Stingwings",
+          "points": 65,
+          "thumbnail": "vespid"
         },
         {
-            "id" : 6,
-            "keyword" : "Battleline"
+          "id": 20,
+          "name": "Commander Farsight",
+          "points": 105,
+          "thumbnail": "farsight"
+        },
+        {
+          "id": 21,
+          "name": "Commander Shadowsun",
+          "points": 100,
+          "thumbnail": "shadowsun"
+        },
+        {
+          "id": 22,
+          "name": "Ethereal",
+          "points": 50,
+          "thumbnail": "ethereal"
+        },
+        {
+          "id": 23,
+          "name": "Commander in Enforcer Battlesuit",
+          "points": 85,
+          "thumbnail": "enforcer"
+        },
+        {
+          "id": 24,
+          "name": "Commander in Coldstar Battlesuit",
+          "points": 95,
+          "thumbnail": "coldstar"
+        },
+        {
+          "id": 25,
+          "name": "Devilfish",
+          "points": 85,
+          "thumbnail": "devilfish"
         }
     ]
 }

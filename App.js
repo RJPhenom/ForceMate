@@ -3,6 +3,10 @@ import { View, Image, Text, StyleSheet } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { TouchableWithoutFeedback } from 'react-native';
+import * as Font from 'expo-font';
+import { useFonts } from 'expo-font';
+import 'react-native-gesture-handler';
+
 
 // My imports
 // Assets
@@ -15,6 +19,9 @@ import NavBar from './components/NavBar';
 import Home from './pages/Home';
 import List from './pages/List';
 
+// Data
+import ListData from './data/lists.json';
+
 // *******************************
 //               JS
 // *******************************
@@ -22,7 +29,12 @@ import List from './pages/List';
 const Stack = createStackNavigator();
 
 export default function App() {
+  const [selectableLists, setSelectableLists] = useState(ListData.lists || []);
   const [menuPressed, setMenuPressed] = useState(false);
+  const [fontsLoaded] = useFonts({
+    Urbanist: require('./assets/fonts/Urbanist-VariableFont_wght.ttf'),
+    UrbanistItalic: require('./assets/fonts/Urbanist-Italic-VariableFont_wght.ttf'),
+  });
   
   return (
     <TouchableWithoutFeedback onPress={() => setMenuPressed(false)} accessible={false}>
@@ -33,7 +45,7 @@ export default function App() {
               {(props) => (
                 <>
                 <NavBar menuPressed={menuPressed} setMenuPressed={setMenuPressed} navigation={props.navigation}/>
-                <Home {...props} setMenuPressed={setMenuPressed} />
+                <Home {...props} lists={selectableLists} setLists={setSelectableLists} menuPressed={setMenuPressed} />
                 </>
               )}
             </Stack.Screen>
@@ -41,7 +53,7 @@ export default function App() {
               {(props) => (
                 <>
                 <NavBar menuPressed={menuPressed} setMenuPressed={setMenuPressed} navigation={props.navigation}/>
-                <List {...props} setMenuPressed={setMenuPressed} />
+                <List {...props} lists={selectableLists} setLists={setSelectableLists} menuPressed={setMenuPressed} />
                 </>
               )}
             </Stack.Screen>

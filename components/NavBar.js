@@ -42,7 +42,7 @@ const NavBar = ({ menuPressed, setMenuPressed, navigation }) => {
           >
 
             {/* The actual burger menu icon, which is a png that sits in the container and changes colour */}
-            <Image source={Icons.BurgerIconWhite} style={[styles.flexIcon, {height: '45%'}, { tintColor: menuPressed ? Colours.fmBlue : Colours.fmWhite }]} />
+            <Image source={menuPressed ? Icons.BurgerIconBlack : Icons.BurgerIconWhite} style={[styles.flexIcon, {height: '45%'}, { tintColor: menuPressed ? Colours.fmBlue : Colours.fmWhite }]} />
 
           </TouchableOpacity>
           )}
@@ -51,11 +51,9 @@ const NavBar = ({ menuPressed, setMenuPressed, navigation }) => {
           {/* WEB: Show menu items directly */}
           {isWeb && (
             <View style={styles.webMenuContainer}>
-              <TouchableOpacity style={styles.webMenuItem} onPress={() => navigation.navigate('Home')}>
+              <TouchableOpacity style={styles.webMenuItem} onPress={() => {setMenuPressed(false); navigation.navigate('Home')}}>
+                <Image source={Icons.HomeIconWhite} style={[styles.flexIcon, {height: '50%', alignSelf: 'center'}, { tintColor: menuPressed ? Colours.fmBlack : Colours.fmOffwhite }]} />
                 <Text style={styles.webMenuText}>Home</Text>
-              </TouchableOpacity>
-              <TouchableOpacity style={styles.webMenuItem} onPress={() => navigation.navigate('List')}>
-                <Text style={styles.webMenuText}>List</Text>
               </TouchableOpacity>
             </View>
           )}
@@ -68,7 +66,7 @@ const NavBar = ({ menuPressed, setMenuPressed, navigation }) => {
         {/* DROPDOWN MENU - MOBILE ONLY */}
         {menuPressed && !isWeb && (
           <View style={styles.dropdownMenu}>
-            <TouchableOpacity style={styles.menuItem} onPress={() => navigation.navigate('Home')}>
+            <TouchableOpacity style={styles.menuItem} onPress={() => {setMenuPressed(false); navigation.navigate('Home')}}>
               <Image source={Icons.HomeIconBlack} style={[styles.flexIcon, {height: '50%', alignSelf: 'center'}, { tintColor: menuPressed ? Colours.fmBlack : Colours.fmOffwhite }]} />
               <Text style={styles.menuText}>Home</Text>
             </TouchableOpacity>

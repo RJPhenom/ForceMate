@@ -1,5 +1,109 @@
 {
-    "lists" : [
-
+    "lists": [
+        {
+            "name": "Tau List",
+            "faction": 1,
+            "battle_size" : 2000,
+            "categories" : [
+                {
+                    "id" : 1,
+                    "name" : "Epic Hero",
+                    "units" : []
+                },
+                {
+                    "id" : 2,
+                    "name" : "Character",
+                    "units" : []
+                },
+                {
+                    "id" : 3,
+                    "name" : "Battleline",
+                    "units" : []
+                },
+                {
+                    "id" : 4,
+                    "name" : "Infantry",
+                    "units" : [1,1,1]
+                },
+                {
+                    "id" : 5,
+                    "name" : "Mounted",
+                    "units" : []
+                },
+                {
+                    "id" : 6,
+                    "name" : "Beast",
+                    "units" : []
+                },
+                {
+                    "id" : 7,
+                    "name" : "Vehicle",
+                    "units" : []
+                },
+                {
+                    "id" : 8,
+                    "name" : "Dedicated Transport",
+                    "units" : []
+                },
+                {
+                    "id" : 9,
+                    "name" : "Fortifications",
+                    "units" : []
+                }
+            ]
+        },
+        {
+            "name": "ME ORKZ LISH'",
+            "faction": 2,
+            "points": 0,
+            "battle_size" : 1500,
+            "categories" : [
+                {
+                    "id" : 1,
+                    "name" : "Epic Hero",
+                    "units" : []
+                },
+                {
+                    "id" : 2,
+                    "name" : "Character",
+                    "units" : []
+                },
+                {
+                    "id" : 3,
+                    "name" : "Battleline",
+                    "units" : []
+                },
+                {
+                    "id" : 4,
+                    "name" : "Infantry",
+                    "units" : []
+                },
+                {
+                    "id" : 5,
+                    "name" : "Mounted",
+                    "units" : []
+                },
+                {
+                    "id" : 6,
+                    "name" : "Monster",
+                    "units" : []
+                },
+                {
+                    "id" : 7,
+                    "name" : "Vehicle",
+                    "units" : []
+                },
+                {
+                    "id" : 8,
+                    "name" : "Dedicated Transport",
+                    "units" : []
+                },
+                {
+                    "id" : 9,
+                    "name" : "Fortifications",
+                    "units" : []
+                }
+            ]
+        }
     ]
 }

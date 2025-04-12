@@ -34,7 +34,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     minWidth: minWidth,
-    marginLeft: 10,
+    marginLeft: 15,
   },
 
   text: {
@@ -42,6 +42,7 @@ const styles = StyleSheet.create({
     fontSize: 14,
     fontWeight: 'bold',
     fontFamily: 'Urbanist',
+    paddingHorizontal: 5,
   },
 });
 

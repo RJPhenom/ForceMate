@@ -1,7 +1,6 @@
-import React from "react";
+import React, { useState } from 'react';
 import { View, Image, Text, StyleSheet } from "react-native";
 import { Pressable } from 'react-native';
-import { useState } from "react";
 
 // My imports
 // Assets
@@ -15,6 +14,7 @@ import PointsBubble from "./PointsBubble";
 //            COMPONENT
 // *******************************
 const ItemCard = ({ onPress, thumbnail, text, points }) => {
+  // ---React STATE Handling---
   const [touched, setTouched] = useState(false);
 
   return (
