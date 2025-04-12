@@ -69,7 +69,7 @@ const CategoryCard = ({ name, points, units, addable, unitsInList, pointsTrackin
 
     // Update global lists to reflect local change
     const updatedLists = [...lists];
-    const updatedList = updatedLists.find(storedLists => list.id === storedLists.id);
+    const updatedList = updatedLists.find(storedLists => list.name === storedLists.name);
     const updatedCategory = updatedList.categories.find(category => category.name === name);
     updatedCategory.units.push(newUnit.id);
 

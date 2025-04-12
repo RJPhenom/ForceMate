@@ -77,6 +77,24 @@ const navigateToList = (list, navigation) => {
   navigation.navigate('List', { list: list });
 }
 
+// Gets a unit by ID in the data JSON
+const getUnit = (id) => {
+	// Lookup the unit object in the faction JSON
+	return Data.units.find(unit => unit.id === id);
+}
+
+// Gets the sum total of points spent for a list
+const getTotalPoints = (list) => {
+  let totalPoints = 0;
+  list.categories.forEach(category => {
+    category.units.forEach(unit => {
+      totalPoints += getUnit(unit).points;
+    });
+  });
+
+  return totalPoints;
+}
+
 // *******************************
 //            PAGE
 // *******************************
@@ -119,7 +137,7 @@ export default function Home({ navigation, lists, setLists, menuPressed }) {
             onPress={() => { menuPressed(false); navigateToList(list, navigation)}}
             thumbnail={Thumbnails[Data.factions.find(faction => faction.id === list.faction).thumbnail]}
             text={list.name}
-            points={list.battle_size}
+            points={getTotalPoints(list)}
             removable={true}
             onDelete={() => handleDelete(index)}
           />
